@@ -1,4 +1,4 @@
-CREATE TYPE status AS ENUM ('scheduled', 'canceled', 'completed', 'available', 'unavailable')
+CREATE TYPE status AS ENUM ('scheduled', 'completed', 'available')
 CREATE TABLE visit
 (
     visit_id 	           SERIAL                    NOT NULL,

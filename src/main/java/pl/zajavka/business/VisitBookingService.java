@@ -3,7 +3,6 @@ package pl.zajavka.business;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import pl.zajavka.business.dao.VisitDAO;
 import pl.zajavka.domain.MedicalHistory;
 import pl.zajavka.domain.Patient;
 import pl.zajavka.domain.Visit;
@@ -37,10 +36,11 @@ public class VisitBookingService {
 
         Visit visit = visitService.visitToBook(bookingVisit.getVisitVisitNumber());
 
-        Visit bookedVisit = buildBookedVisit(visit, patient); // no i tu dupa
-        Patient patient = buildPatient(bookingVisit, bookedVisit);
-        patientService.issueVisit(patient);
-        return bookedVisit;
+//        Visit bookedVisit = buildBookedVisit(visit, patient); // no i tu dupa
+//        Patient patient = buildPatient(bookingVisit, bookedVisit);
+//        patientService.issueVisit(patient);
+//        return bookedVisit;
+        return null;
     }
 
 
@@ -64,7 +64,6 @@ public class VisitBookingService {
                 .status(visit.getStatus())
                 .patient(patient)
                 .doctor(visit.getDoctor())
-                .visitNote(visit.getVisitNote()) // ona pusta jest, bo to jest dopiero bookowanie wizyty to null poleci, to bez tego raczej
                 // czy osobny service VisitDoctorManagementService gdzie właśnie te notatki doktor moze dodać ???
                 // czy osobny VisitPatientManagementService gdzie może cancel visit ???  to i visit history może razem ??
                 // i mam Visit History w domenie by pacjent mogł przeglądać te poprzednie wizyty i tutaj też może zobaczyć visitNote to tu też servis czy to do jednego gdzie moze odwołać ???

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 import pl.zajavka.business.dao.VisitDAO;
 import pl.zajavka.domain.Visit;
 import pl.zajavka.domain.VisitNote;
+import pl.zajavka.infrastructure.database.entity.VisitEntity;
 import pl.zajavka.infrastructure.database.entity.VisitNoteEntity;
 import pl.zajavka.infrastructure.database.repository.jpa.VisitJpaRepository;
 import pl.zajavka.infrastructure.database.repository.jpa.VisitNoteJpaRepository;
@@ -25,7 +26,7 @@ public class VisitRepository implements VisitDAO{
     private final VisitNoteEntityMapper visitNoteEntityMapper;
 
     @Override
-    public Set<Visit> findActiveVisitsByPatientPesel(String pesel) {
+    public Set<Visit> findScheduledVisitsByPatientPesel(String pesel) {
         return visitJpaRepository.findScheduledVisitsByPatientPesel(pesel).stream()
                 .map(visitEntityMapper::mapFromEntity)
                 .collect(Collectors.toSet());
@@ -53,8 +54,8 @@ public class VisitRepository implements VisitDAO{
     }
 
     @Override
-    public void cancelVisit(Integer visitId) {
-        visitJpaRepository.cancelVisitByVisitId(visitId);
+    public void cancelVisit(String visitNumber) {
+         visitJpaRepository.cancelVisitByVisitNumber(visitNumber); // co z mapowaniem ??
     }
 
     @Override

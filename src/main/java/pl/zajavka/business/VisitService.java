@@ -19,8 +19,8 @@ public class VisitService {
 
 
     @Transactional
-    public Set<Visit> findActiveVisits(String pesel){
-        Set<Visit> activeVisits = visitDAO.findActiveVisitsByPatientPesel(pesel);
+    public Set<Visit> findScheduledVisits(String pesel){
+        Set<Visit> activeVisits = visitDAO.findScheduledVisitsByPatientPesel(pesel);
         log.info("Active visits: [{}]", activeVisits.size());
         return activeVisits;
     }
@@ -57,8 +57,8 @@ public class VisitService {
     }
 
     @Transactional
-    public void cancelVisit(Integer visitId){
-        visitDAO.cancelVisit(visitId);
+    public void cancelVisit(String visitNumber){
+        visitDAO.cancelVisit(visitNumber);
     };
 
 

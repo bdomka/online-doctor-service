@@ -7,7 +7,7 @@ import java.util.Set;
 
 public interface VisitDAO {
 
-    Set<Visit> findActiveVisitsByPatientPesel(String pesel);
+    Set<Visit> findScheduledVisitsByPatientPesel(String pesel);
 
     Set<Visit> findCompletedVisitsByPatientPesel(String pesel);
 
@@ -15,7 +15,7 @@ public interface VisitDAO {
 
     Set<Visit> findAvailableVisitsByDoctorLicenseNumber(String licenseNumber);
 
-    void cancelVisit(Integer visitId);
+    void cancelVisit(String visitNumber);
 
     Optional<Visit> findVisitToBookByVisitNumber(String visitNumber);
 

@@ -48,12 +48,12 @@ public interface VisitJpaRepository extends JpaRepository<VisitEntity, Integer> 
    // odwołać wizytę
    @Query("""
         UPDATE VisitEntity v
-        SET v.status = 'CANCELED'
+        SET v.status = 'AVAILABLE'
         WHERE v.status = 'SCHEDULED'
-        AND v.visitId = :visitId
+        AND v.visitNumber = :visitNumber
         """)
    @Modifying(clearAutomatically = true)
-   void cancelVisitByVisitId(@Param("visitId") Integer visitId);
+   void cancelVisitByVisitNumber(@Param("visitNumber") String visitNumber);
 
    Optional<VisitEntity> findVisitToBookByVisitNumber(String visitNumber);
 
