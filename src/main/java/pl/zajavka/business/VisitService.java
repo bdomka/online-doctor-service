@@ -8,6 +8,7 @@ import pl.zajavka.business.dao.VisitDAO;
 import pl.zajavka.domain.Visit;
 import pl.zajavka.domain.exception.NotFoundException;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 @Slf4j

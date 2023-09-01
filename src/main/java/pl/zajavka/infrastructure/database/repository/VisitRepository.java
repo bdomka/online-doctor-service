@@ -12,6 +12,7 @@ import pl.zajavka.infrastructure.database.repository.jpa.VisitNoteJpaRepository;
 import pl.zajavka.infrastructure.database.repository.mapper.VisitEntityMapper;
 import pl.zajavka.infrastructure.database.repository.mapper.VisitNoteEntityMapper;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;

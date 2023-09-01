@@ -42,7 +42,7 @@ public interface VisitJpaRepository extends JpaRepository<VisitEntity, Integer> 
             WHERE v.status = 'AVAILABLE'
             AND v.doctor.licenseNumber = :licenseNumber
             """)
-    Set<VisitEntity> findAvailableVisitsByDoctorLicenseNumber(final @Param("licenseNumber") String licenseNumber);
+    List<VisitEntity> findAvailableVisitsByDoctorLicenseNumber(final @Param("licenseNumber") String licenseNumber);
 
 
    // odwołać wizytę

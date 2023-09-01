@@ -46,6 +46,9 @@ public class PatientRepository implements PatientDAO {
         PatientEntity patientSaved = patientJpaRepository.saveAndFlush(patientToSave);
 
         patient.getVisits().stream()
+                // tutaj chciałam odfiltrować te vizyty które nie mają id i nie są jeszcze
+                // w bazie danych
+                // ale u mnie wizyty istnieja juz wczesniej wiec wszytkie maja id
                 .filter(visit -> Objects.isNull(visit.getVisitId()))
                 .map(visitEntityMapper::mapToEntity)
                 .forEach(visitEntity -> {

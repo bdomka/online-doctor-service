@@ -35,6 +35,9 @@ public class PatientEntity {
     @Column(name = "pesel", unique = true)
     private String pesel;
 
+    @Column(name = "email", unique = true)
+    private String email;
+
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "patient")
     private Set<VisitEntity> visits;
 

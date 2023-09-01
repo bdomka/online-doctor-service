@@ -42,7 +42,7 @@ public interface PatientEntityMapper {
    @Mapping(target = "visitNote", ignore = true)
     Visit mapFromEntity(VisitEntity visitEntity);
 
-    @Mapping(target = "visit", ignore = true)
+
     PatientEntity mapToEntity(Patient patient);
 
 

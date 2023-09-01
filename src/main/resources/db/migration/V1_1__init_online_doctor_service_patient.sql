@@ -6,6 +6,8 @@ CREATE TABLE patient
     surname      VARCHAR(32) NOT NULL,
     gender       gender      NOT NULL,
     pesel        VARCHAR(32) NOT NULL,
+    email        VARCHAR(32) NOT NULL,
     PRIMARY KEY (patient_id),
-    UNIQUE (pesel)
+    UNIQUE (pesel),
+    UNIQUE (email)
 );

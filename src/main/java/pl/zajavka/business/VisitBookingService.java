@@ -8,6 +8,7 @@ import pl.zajavka.domain.Patient;
 import pl.zajavka.domain.Visit;
 import pl.zajavka.domain.VisitBooking;
 
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -33,14 +34,12 @@ public class VisitBookingService {
 
     @Transactional
     public Visit initialVisitBooking(VisitBooking bookingVisit) {
-
         Visit visit = visitService.visitToBook(bookingVisit.getVisitVisitNumber());
+        Patient patient = patientService.findPatient(bookingVisit.getExistingPatientPesel());
 
-//        Visit bookedVisit = buildBookedVisit(visit, patient); // no i tu dupa
-//        Patient patient = buildPatient(bookingVisit, bookedVisit);
-//        patientService.issueVisit(patient);
-//        return bookedVisit;
-        return null;
+        Visit bookedVisit = buildBookedVisit(visit, patient);
+        patientService.issueVisit(patient);
+        return bookedVisit;
     }
 
 

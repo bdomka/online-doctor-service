@@ -17,6 +17,8 @@ public class Patient {
     String surname;
     Gender gender;
     String pesel;
+    String email;
+//    UserEntity userEntity; by wyciągnąć user id przy bookowaniu wizyty ???
     Set<Visit> visits;
     Set<MedicalHistory> medicalHistories;
 
